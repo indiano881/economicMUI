@@ -3,10 +3,10 @@ import { Box, Button, Container, Paper, Typography } from '@mui/material';
 import { LineChart } from '@mui/x-charts/LineChart';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import { useState, useEffect } from 'react';
-import {  fetchData, percentageIncreaseCalculator } from './utils/functions';
+import {  fetchData} from './utils/functions';
 
 function App() {
-  const [lastCPI, setLastCPI] = useState<number>();
+  /*const [lastCPI, setLastCPI] = useState<number>();*/
   const [xValues, setXValues] = useState<string[]>([]);
   const [yValues, setYValues] = useState<number[]>([]);
   const [xValuesSWE, setXValuesSWE] = useState<string[]>([]);
