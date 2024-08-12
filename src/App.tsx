@@ -47,7 +47,7 @@ function App() {
           <Paper elevation={6} sx={{my: 4, px: 2}}>
             <Typography variant='h5' sx={{ py: 2 }}>Last CPI is </Typography>
           </Paper>
-          
+          {xValuesSWE}
           <Button color='primary' variant='contained' endIcon={<RefreshIcon /> } sx={{":hover": {bgcolor: "darkblue"}}} onClick={handleRefresh}>
             REFRESH
           </Button>
