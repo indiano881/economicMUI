@@ -1,4 +1,4 @@
-import Header from './components/Header';
+
 import { Box, Button, ButtonGroup, Container, Paper, Typography } from '@mui/material';
 import { LineChart } from '@mui/x-charts/LineChart';
 import RefreshIcon from '@mui/icons-material/Refresh';
@@ -6,6 +6,7 @@ import MouseIcon from '@mui/icons-material/Mouse';
 import { useState, useEffect } from 'react';
 import {  fetchData} from './utils/functions';
 import Currencies from './components/Currencies';
+import ResponsiveAppBar from './components/Navbar';
 
 function App() {
   /*const [lastCPI, setLastCPI] = useState<number>();*/
@@ -44,7 +45,7 @@ function App() {
   };
   return (
     <>
-    <Header />
+    <ResponsiveAppBar />
       <Container maxWidth="lg" sx={{ color: "black", bgcolor: "#6A7C94", height: "100vh", alignItems: "center", display: "flex", flexDirection: "column" }}>
       
         <Box>
