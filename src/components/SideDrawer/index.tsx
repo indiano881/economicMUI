@@ -174,7 +174,7 @@ export default function MiniDrawer() {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        <Typography paragraph>
+        <Typography paragraph variant='h6'>
           ECONOMIC MUI is a portal that has the goal to show relevantic economic data, with a deeper focus on  USA and Sweden!
         </Typography>
         

@@ -82,7 +82,7 @@ function App() {
           series={[
             {
               data: yValues,
-              color: "blue",
+              color: "#900603",
               label:"US"
             },
             {
@@ -98,10 +98,10 @@ function App() {
         </Paper>
         <Typography variant='h5' color={"white"}>Values in percentage, reference year is 2010 = 100%</Typography>
         <ButtonGroup>
-        <Button color='primary' variant='contained' endIcon={<MouseIcon /> } sx={{":hover": {bgcolor: "darkblue"},bgcolor: "blue", width: "120px"}} onClick={handleUSA}>
+        <Button color='primary' variant='contained' endIcon={<MouseIcon /> } sx={{":hover": {bgcolor: "#680C07"},bgcolor: "#900603", width: "120px"}} onClick={handleUSA}>
             USA
           </Button>
-          <Button color='primary' variant='contained' endIcon={<MouseIcon/> }  sx={{":hover": {bgcolor: "darkblue"},bgcolor: "green", width: "120px"}} onClick={handleSweden}>
+          <Button color='primary' variant='contained' endIcon={<MouseIcon/> }  sx={{":hover": {bgcolor: "darkgreen"},bgcolor: "green", width: "120px"}} onClick={handleSweden}>
             Sweden
           </Button>
           </ButtonGroup>

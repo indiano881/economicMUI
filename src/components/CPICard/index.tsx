@@ -31,7 +31,7 @@ export default function MultiActionAreaCard({image, country, CPIDate, CPIValue}:
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            CPI in {country} for {CPIDate} was {CPIValue} %
+            Last CPI in {country} was {CPIValue} % ({CPIDate})
           </Typography>
           
         </CardContent>

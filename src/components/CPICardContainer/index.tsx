@@ -11,7 +11,7 @@ const CPICardContainer = ({USALastCPIDate, USALastCPIDateValue, SWELastCPIDate, 
     return (
         <CardContent sx={{display: "flex", flexDirection: {xs: "column", md:"row"}}}>
           <CPICard image={USA} country="the US" CPIDate={USALastCPIDate} CPIValue={USALastCPIDateValue}  />
-          <CPICard image={Sweden} country="US" CPIDate={SWELastCPIDate} CPIValue={SWELastCPIDateValue}  />
+          <CPICard image={Sweden} country="Sweden" CPIDate={SWELastCPIDate} CPIValue={SWELastCPIDateValue}  />
         </CardContent>
     )
 };
