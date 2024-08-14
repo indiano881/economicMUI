@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import { Stack, Paper, Typography, TextField, Grid } from '@mui/material';
 
 const fetchALLCurrency = async (country: string, setCurrencies: (currencies: { [key: string]: number }) => void) => {
