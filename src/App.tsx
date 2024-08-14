@@ -1,5 +1,5 @@
 
-import { Box, Button, ButtonGroup, Container, Paper, Typography } from '@mui/material';
+import { Box, Button, ButtonGroup, Container, Drawer, Paper, Typography } from '@mui/material';
 import { LineChart } from '@mui/x-charts/LineChart';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import MouseIcon from '@mui/icons-material/Mouse';
@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import {  fetchData} from './utils/functions';
 import Currencies from './components/Currencies';
 import ResponsiveAppBar from './components/Navbar';
+import SideDrawer from './components/SideDrawer';
 
 function App() {
   /*const [lastCPI, setLastCPI] = useState<number>();*/
@@ -45,7 +46,8 @@ function App() {
   };
   return (
     <>
-    <ResponsiveAppBar />
+    {/*<ResponsiveAppBar />*/}
+    <SideDrawer />
       <Container maxWidth="lg" sx={{ color: "black", bgcolor: "#6A7C94", height: "100vh", alignItems: "center", display: "flex", flexDirection: "column" }}>
       
         <Box>

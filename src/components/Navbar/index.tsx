@@ -7,37 +7,33 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
+
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
+
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
 const pages = ['Home', 'CPI', 'Currencies', `About`];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+  
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
-  };
+  
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+  
 
   return (
     <AppBar position="static">
-      <Container maxWidth="xl" sx={{backgroundColor: "#3A6C9C"}}>
+      <Container maxWidth="xl" sx={{backgroundColor: "#3A6C9C", width:"100%"}}>
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
@@ -48,7 +44,8 @@ function ResponsiveAppBar() {
             sx={{
               mr: 6,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'Roboto',
+              fontFamily: 'monospace',
+              letterSpacing: '.2rem',
               fontWeight: 700,
               color: 'inherit',
               textDecoration: 'none',
