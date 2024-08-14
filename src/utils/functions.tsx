@@ -8,8 +8,6 @@ export const percentageIncreaseCalculator = (val1:number , val2:number) =>  {
 export const fetchData = async (country: string, setXValues: Function, setYValues: Function) => {
     const response = await fetch(`https://api.worldbank.org/v2/country/${country}/indicator/FP.CPI.TOTL?format=json`);
     const data = await response.json();
-    console.log(data);
-    
     const xAxisData = [];
     const yAxisData = [];
     
@@ -18,8 +16,6 @@ export const fetchData = async (country: string, setXValues: Function, setYValue
       yAxisData.push(data[1][i].value); 
     }
 
-
-
     setXValues(xAxisData.reverse()); 
     setYValues(yAxisData.reverse());
   };
@@ -27,20 +23,16 @@ export const fetchData = async (country: string, setXValues: Function, setYValue
   export const downloandLastCPI = async (country: string, setDate: Function, setValue: Function) => {
     const response = await fetch(`https://api.worldbank.org/v2/country/${country}/indicator/FP.CPI.TOTL?format=json`);
     const data = await response.json();
-    console.log(data[1][0].date);
-    console.log(data[1][0].value);
-    
-    
-
 
     setDate(data[1][0].date); 
     setValue(data[1][0].value);
   };
 
-  export const fetchCurrency = async(country: string) => {
+  export const fetchCurrency = async (country: string, country2: string, setExchange: any, setDate:Function) => {
 
-    const response= await fetch("https://open.er-api.com/v6/latest/USD");
+    const response= await fetch(`https://open.er-api.com/v6/latest/${country2}`);
     const data= await response.json();
-    console.log(`USD/${country}` + data.rates[country]);
-    
+  
+    setDate(data.time_last_update_utc)
+    setExchange(data.rates[country])
 }

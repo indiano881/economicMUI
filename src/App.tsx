@@ -4,15 +4,16 @@ import { LineChart } from '@mui/x-charts/LineChart';
 
 import MouseIcon from '@mui/icons-material/Mouse';
 import { useState, useEffect } from 'react';
-import {  downloandLastCPI, fetchData} from './utils/functions';
+import {  downloandLastCPI, fetchCurrency, fetchData} from './utils/functions';
 import Currencies from './components/Currencies';
 import SideDrawer from './components/SideDrawer';
 import { CPICardContainerProps } from './utils/types';
 import CPICardContainer from './components/CPICardContainer';
+import SingleExchange from './components/SingleExchange';
 
 
 function App() {
-  /*const [lastCPI, setLastCPI] = useState<number>();*/
+  
   const [xValues, setXValues] = useState<string[]>([]);
   const [yValues, setYValues] = useState<number[]>([]);
   const [, setXValuesSWE] = useState<string[]>([]);
@@ -21,13 +22,18 @@ function App() {
   const [USALastCPIDateValue, setUSALastCPIValue] = useState<CPICardContainerProps>();
   const [SWELastCPIDate, setSWELastCPIDate] = useState<CPICardContainerProps>();
   const [SWELastCPIDateValue, setSWELastCPIValue] = useState<CPICardContainerProps>();
-  
+  const [UsdSek, setUsdSek] = useState<any>();
+  const [UsdSekDate, setUsdSekDate] = useState<any>();
+  const [SekUsd, setSekUsd] = useState<any>();
+  const [SekUsdDate, SekUsdSekDate] = useState<any>();
 
   useEffect(() => {
     fetchData("USA", setXValues, setYValues);
     fetchData("SWE", setXValuesSWE, setYValuesSWE);
     downloandLastCPI("USA", setUSALastCPIDate, setUSALastCPIValue);
     downloandLastCPI("SWE", setSWELastCPIDate, setSWELastCPIValue);
+    fetchCurrency("SEK", "USD", setUsdSek, setUsdSekDate);
+    fetchCurrency("USD", "SEK",setSekUsd, SekUsdSekDate);
   }, []);
 
   
@@ -50,13 +56,16 @@ function App() {
   };
   return (
     <>
-    {/*<ResponsiveAppBar />*/}
+    
     <SideDrawer />
-      <Container maxWidth="md"  sx={{ color: "black", bgcolor: "#3A6C9C", height: "100vh", alignItems: "center", display: "flex", flexDirection: "column" }}>
+    
+      <Container maxWidth="lg"  sx={{ color: "black", bgcolor: "#3A6C9C", height: "100vh", alignItems: "center", display: "flex", flexDirection: "column" }}>
       
         <Box>
-          
+        <SingleExchange UsdSek={UsdSek} UsdSekDate={UsdSekDate} SekUsd={SekUsd} SekUsdDate={SekUsdDate}/>
+        
           <Paper elevation={6} sx={{my: 4, px: 2}}>
+            
             <CPICardContainer USALastCPIDate={USALastCPIDate} USALastCPIDateValue={USALastCPIDateValue} SWELastCPIDate={SWELastCPIDate} SWELastCPIDateValue={SWELastCPIDateValue} />
             
             
@@ -87,7 +96,7 @@ function App() {
         
         </Box>
         </Paper>
-        <Typography variant='h5'>Values in percentage, reference year is 2010 = 100%</Typography>
+        <Typography variant='h5' color={"white"}>Values in percentage, reference year is 2010 = 100%</Typography>
         <ButtonGroup>
         <Button color='primary' variant='contained' endIcon={<MouseIcon /> } sx={{":hover": {bgcolor: "darkblue"},bgcolor: "blue", width: "120px"}} onClick={handleUSA}>
             USA

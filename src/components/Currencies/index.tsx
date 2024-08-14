@@ -1,4 +1,4 @@
-import {fetchCurrency} from "../../utils/functions"
+
 
 
 
@@ -6,8 +6,7 @@ import {fetchCurrency} from "../../utils/functions"
 
 const Currencies = () => {
 
-fetchCurrency("SEK")
-fetchCurrency("EUR")
+
     return (
 
 
