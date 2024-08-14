@@ -8,6 +8,7 @@ import {  fetchData} from './utils/functions';
 import Currencies from './components/Currencies';
 import ResponsiveAppBar from './components/Navbar';
 import SideDrawer from './components/SideDrawer';
+import CPICardContainer from './components/CPICardContainer';
 
 function App() {
   /*const [lastCPI, setLastCPI] = useState<number>();*/
@@ -53,6 +54,7 @@ function App() {
         <Box>
           
           <Paper elevation={6} sx={{my: 4, px: 2}}>
+            <CPICardContainer />
             <Typography variant='h5' sx={{ py: 2 }}>Last CPI is </Typography>
             <Button color='primary' variant='contained' endIcon={<RefreshIcon /> } sx={{":hover": {bgcolor: "darkblue"}}} onClick={handleRefresh}>
             REFRESH
