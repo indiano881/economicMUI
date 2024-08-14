@@ -6,9 +6,10 @@ import MouseIcon from '@mui/icons-material/Mouse';
 import { useState, useEffect } from 'react';
 import {  downloandLastCPI, fetchData} from './utils/functions';
 import Currencies from './components/Currencies';
-
 import SideDrawer from './components/SideDrawer';
+import { CPICardContainerProps } from './utils/types';
 import CPICardContainer from './components/CPICardContainer';
+
 
 function App() {
   /*const [lastCPI, setLastCPI] = useState<number>();*/
@@ -16,10 +17,10 @@ function App() {
   const [yValues, setYValues] = useState<number[]>([]);
   const [, setXValuesSWE] = useState<string[]>([]);
   const [yValuesSWE, setYValuesSWE] = useState<number[]>([]);
-  const [USALastCPIDate, setUSALastCPIDate] = useState();
-  const [USALastCPIDateValue, setUSALastCPIValue] = useState();
-  const [SWELastCPIDate, setSWELastCPIDate] = useState();
-  const [SWELastCPIDateValue, setSWELastCPIValue] = useState();
+  const [USALastCPIDate, setUSALastCPIDate] = useState<CPICardContainerProps>();
+  const [USALastCPIDateValue, setUSALastCPIValue] = useState<CPICardContainerProps>();
+  const [SWELastCPIDate, setSWELastCPIDate] = useState<CPICardContainerProps>();
+  const [SWELastCPIDateValue, setSWELastCPIValue] = useState<CPICardContainerProps>();
   
 
   useEffect(() => {

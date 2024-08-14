@@ -2,14 +2,9 @@ import CPICard from "../CPICard";
 import USA from "../../../public/usa.jpg"
 import Sweden from "../../../public/sweden.jpg"
 import { CardContent } from "@mui/material";
+import { CPICardContainerProps } from "../../utils/types";
 
 
-type CPICardContainerProps= {
-  USALastCPIDate: string | number,
-  USALastCPIDateValue: string | number,
-  SWELastCPIDate: string | number,
-  SWELastCPIDateValue: string | number,
-}
 
 const CPICardContainer = ({USALastCPIDate, USALastCPIDateValue, SWELastCPIDate, SWELastCPIDateValue}:CPICardContainerProps) => {
   
