@@ -175,7 +175,7 @@ export default function MiniDrawer() {
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
         <Typography paragraph>
-          ECONOMI MUI is a portal that has the goal to show relevantic economic data, with a deeper focus on  USA and Sweden!
+          ECONOMIC MUI is a portal that has the goal to show relevantic economic data, with a deeper focus on  USA and Sweden!
         </Typography>
         
       </Box>

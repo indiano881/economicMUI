@@ -48,7 +48,7 @@ function App() {
     <>
     {/*<ResponsiveAppBar />*/}
     <SideDrawer />
-      <Container maxWidth="lg" sx={{ color: "black", bgcolor: "#6A7C94", height: "100vh", alignItems: "center", display: "flex", flexDirection: "column" }}>
+      <Container maxWidth="md"  sx={{ color: "black", bgcolor: "#3A6C9C", height: "100vh", alignItems: "center", display: "flex", flexDirection: "column" }}>
       
         <Box>
           
