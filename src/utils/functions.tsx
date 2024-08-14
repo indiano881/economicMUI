@@ -24,23 +24,17 @@ export const fetchData = async (country: string, setXValues: Function, setYValue
     setYValues(yAxisData.reverse());
   };
 
-  export const downloandLastCPI = async (country: string, setXValues: Function, setYValues: Function) => {
+  export const downloandLastCPI = async (country: string, setDate: Function, setValue: Function) => {
     const response = await fetch(`https://api.worldbank.org/v2/country/${country}/indicator/FP.CPI.TOTL?format=json`);
     const data = await response.json();
-    console.log(data);
+    console.log(data[1][0].date);
+    console.log(data[1][0].value);
     
-    const xAxisData = [];
-    const yAxisData = [];
-    
-    for (let i = 0; i < 50; i++) {
-      xAxisData.push(data[1][i].date.toString()); 
-      yAxisData.push(data[1][i].value); 
-    }
     
 
 
-    setXValues(xAxisData.reverse()); 
-    setYValues(yAxisData.reverse());
+    setDate(data[1][0].date); 
+    setValue(data[1][0].value);
   };
 
   export const fetchCurrency = async(country: string) => {

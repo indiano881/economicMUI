@@ -4,7 +4,7 @@ import { LineChart } from '@mui/x-charts/LineChart';
 
 import MouseIcon from '@mui/icons-material/Mouse';
 import { useState, useEffect } from 'react';
-import {  fetchData} from './utils/functions';
+import {  downloandLastCPI, fetchData} from './utils/functions';
 import Currencies from './components/Currencies';
 
 import SideDrawer from './components/SideDrawer';
@@ -16,12 +16,17 @@ function App() {
   const [yValues, setYValues] = useState<number[]>([]);
   const [, setXValuesSWE] = useState<string[]>([]);
   const [yValuesSWE, setYValuesSWE] = useState<number[]>([]);
-
+  const [USALastCPIDate, setUSALastCPIDate] = useState();
+  const [USALastCPIDateValue, setUSALastCPIValue] = useState();
+  const [SWELastCPIDate, setSWELastCPIDate] = useState();
+  const [SWELastCPIDateValue, setSWELastCPIValue] = useState();
   
 
   useEffect(() => {
     fetchData("USA", setXValues, setYValues);
     fetchData("SWE", setXValuesSWE, setYValuesSWE);
+    downloandLastCPI("USA", setUSALastCPIDate, setUSALastCPIValue);
+    downloandLastCPI("SWE", setSWELastCPIDate, setSWELastCPIValue);
   }, []);
 
   
@@ -51,7 +56,7 @@ function App() {
         <Box>
           
           <Paper elevation={6} sx={{my: 4, px: 2}}>
-            <CPICardContainer />
+            <CPICardContainer USALastCPIDate={USALastCPIDate} USALastCPIDateValue={USALastCPIDateValue} SWELastCPIDate={SWELastCPIDate} SWELastCPIDateValue={SWELastCPIDateValue} />
             
             
           </Paper>
