@@ -5,6 +5,7 @@ import { createTheme, ThemeProvider } from '@mui/material'
 import "./global.css";
 
 const theme= createTheme({
+  
   typography: {
     h1: {
       fontSize: "3rem",

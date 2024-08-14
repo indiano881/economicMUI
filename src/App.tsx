@@ -1,7 +1,8 @@
 import Header from './components/Header';
-import { Box, Button, Container, Paper, Typography } from '@mui/material';
+import { Box, Button, ButtonGroup, Container, Paper, Typography } from '@mui/material';
 import { LineChart } from '@mui/x-charts/LineChart';
 import RefreshIcon from '@mui/icons-material/Refresh';
+import MouseIcon from '@mui/icons-material/Mouse';
 import { useState, useEffect } from 'react';
 import {  fetchData} from './utils/functions';
 
@@ -41,18 +42,22 @@ function App() {
   };
   return (
     <>
-      <Container maxWidth="lg" sx={{ color: "black", bgcolor: "#ededed", height: "100vh", alignItems: "center", display: "flex", flexDirection: "column" }}>
+    <Header />
+      <Container maxWidth="lg" sx={{ color: "black", bgcolor: "#6A7C94", height: "100vh", alignItems: "center", display: "flex", flexDirection: "column" }}>
+      
         <Box>
-          <Header />
+          
           <Paper elevation={6} sx={{my: 4, px: 2}}>
             <Typography variant='h5' sx={{ py: 2 }}>Last CPI is </Typography>
           </Paper>
-          {xValuesSWE}
+          
           <Button color='primary' variant='contained' endIcon={<RefreshIcon /> } sx={{":hover": {bgcolor: "darkblue"}}} onClick={handleRefresh}>
             REFRESH
           </Button>
         </Box>
+        <Paper elevation={6} sx={{ height: "300px", width: "100%" }}>
         <Box style={{ height: "300px", width: "100%" }}>
+          
         <LineChart 
           xAxis={[{ data: xValues, scaleType: "linear", label: "CPI per year" }]} 
           
@@ -72,13 +77,16 @@ function App() {
         />
         
         </Box>
+        </Paper>
         <Typography variant='h5'>Values in percentage, reference year is 2010 = 100%</Typography>
-        <Button color='primary' variant='contained' endIcon={<RefreshIcon /> } sx={{":hover": {bgcolor: "darkblue"},bgcolor: "blue"}} onClick={handleUSA}>
+        <ButtonGroup>
+        <Button color='primary' variant='contained' endIcon={<MouseIcon /> } sx={{":hover": {bgcolor: "darkblue"},bgcolor: "blue", width: "120px"}} onClick={handleUSA}>
             USA
           </Button>
-          <Button color='primary' variant='contained' endIcon={<RefreshIcon /> } sx={{":hover": {bgcolor: "darkblue"},bgcolor: "green"}} onClick={handleSweden}>
+          <Button color='primary' variant='contained' endIcon={<MouseIcon/> }  sx={{":hover": {bgcolor: "darkblue"},bgcolor: "green", width: "120px"}} onClick={handleSweden}>
             Sweden
           </Button>
+          </ButtonGroup>
       </Container>
     </>
   );
