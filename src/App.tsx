@@ -10,7 +10,7 @@ function App() {
   /*const [lastCPI, setLastCPI] = useState<number>();*/
   const [xValues, setXValues] = useState<string[]>([]);
   const [yValues, setYValues] = useState<number[]>([]);
-  const [xValuesSWE, setXValuesSWE] = useState<string[]>([]);
+  const [, setXValuesSWE] = useState<string[]>([]);
   const [yValuesSWE, setYValuesSWE] = useState<number[]>([]);
 
   
@@ -49,11 +49,12 @@ function App() {
           
           <Paper elevation={6} sx={{my: 4, px: 2}}>
             <Typography variant='h5' sx={{ py: 2 }}>Last CPI is </Typography>
-          </Paper>
-          
-          <Button color='primary' variant='contained' endIcon={<RefreshIcon /> } sx={{":hover": {bgcolor: "darkblue"}}} onClick={handleRefresh}>
+            <Button color='primary' variant='contained' endIcon={<RefreshIcon /> } sx={{":hover": {bgcolor: "darkblue"}}} onClick={handleRefresh}>
             REFRESH
           </Button>
+          </Paper>
+          
+          
         </Box>
         <Paper elevation={6} sx={{ height: "300px", width: "100%" }}>
         <Box style={{ height: "300px", width: "100%" }}>
