@@ -13,7 +13,7 @@ import SingleExchange from './components/SingleExchange';
 
 
 function App() {
-  
+  const [page, setPage] =useState("Home");
   const [xValues, setXValues] = useState<string[]>([]);
   const [yValues, setYValues] = useState<number[]>([]);
   const [, setXValuesSWE] = useState<string[]>([]);
@@ -54,58 +54,78 @@ function App() {
       setYValues([])
     }
   };
+
+  console.log("page "+page)
   return (
     <>
     
-    <SideDrawer />
-    
+    <SideDrawer setPage={setPage}/>
       <Container maxWidth="lg"  sx={{ color: "black", bgcolor: "#3A6C9C", height: "100vh", alignItems: "center", display: "flex", flexDirection: "column" }}>
-      
         <Box>
-        <SingleExchange UsdSek={UsdSek} UsdSekDate={UsdSekDate} SekUsd={SekUsd} SekUsdDate={SekUsdDate}/>
+        {(page==="Home" || page==="Currencies") && <> 
+          <SingleExchange UsdSek={UsdSek} UsdSekDate={UsdSekDate} SekUsd={SekUsd} SekUsdDate={SekUsdDate}/>
+        </>}
         
           <Paper elevation={6} sx={{my: 4, px: 2}}>
+            {(page==="Home" || page==="Inflation") && <>
+
+              <CPICardContainer USALastCPIDate={USALastCPIDate} USALastCPIDateValue={USALastCPIDateValue} SWELastCPIDate={SWELastCPIDate} SWELastCPIDateValue={SWELastCPIDateValue} />
+
+            </>}
             
-            <CPICardContainer USALastCPIDate={USALastCPIDate} USALastCPIDateValue={USALastCPIDateValue} SWELastCPIDate={SWELastCPIDate} SWELastCPIDateValue={SWELastCPIDateValue} />
             
             
           </Paper>
           
           
         </Box>
-        <Paper elevation={6} sx={{ height: "300px", width: "100%" }}>
-        <Box style={{ height: "300px", width: "100%" }}>
-          
-        <LineChart 
-          xAxis={[{ data: xValues, scaleType: "linear", label: "CPI per year" }]} 
-          
-          series={[
-            {
-              data: yValues,
-              color: "#900603",
-              label:"US"
-            },
-            {
-              data: yValuesSWE,
-              color: "green",
-              label:"SWE"
-            }
-          ]}
-          
-        />
         
-        </Box>
-        </Paper>
-        <Typography variant='h5' color={"white"}>Values in percentage, reference year is 2010 = 100%</Typography>
-        <ButtonGroup>
-        <Button color='primary' variant='contained' endIcon={<MouseIcon /> } sx={{":hover": {bgcolor: "#680C07"},bgcolor: "#900603", width: "120px"}} onClick={handleUSA}>
-            USA
-          </Button>
-          <Button color='primary' variant='contained' endIcon={<MouseIcon/> }  sx={{":hover": {bgcolor: "darkgreen"},bgcolor: "green", width: "120px"}} onClick={handleSweden}>
-            Sweden
-          </Button>
-          </ButtonGroup>
-          <Box><Paper elevation={6}><Currencies/></Paper></Box>
+        {(page==="Home" || page==="Inflation") && <>
+          <Paper elevation={6} sx={{ height: "300px", width: "100%" }}>
+          <Box style={{ height: "300px", width: "100%" }}>
+          
+          <LineChart 
+            xAxis={[{ data: xValues, scaleType: "linear", label: "CPI per year" }]} 
+            
+            series={[
+              {
+                data: yValues,
+                color: "#900603",
+                label:"US"
+              },
+              {
+                data: yValuesSWE,
+                color: "green",
+                label:"SWE"
+              }
+            ]}
+            
+          />
+          
+          </Box>
+          </Paper>
+          <Typography variant='h5' color={"white"}>Values in percentage, reference year is 2010 = 100%</Typography>
+          <ButtonGroup>
+          <Button color='primary' variant='contained' endIcon={<MouseIcon /> } sx={{":hover": {bgcolor: "#680C07"},bgcolor: "#900603", width: "120px"}} onClick={handleUSA}>
+              USA
+            </Button>
+            <Button color='primary' variant='contained' endIcon={<MouseIcon/> }  sx={{":hover": {bgcolor: "darkgreen"},bgcolor: "green", width: "120px"}} onClick={handleSweden}>
+              Sweden
+            </Button>
+            </ButtonGroup>
+
+</>}
+
+       
+          {page=="Currencies" && <>
+            <Box>
+              <Paper elevation={6}>
+                <Currencies/>
+              </Paper>
+            </Box>
+          
+          </>}
+          
       </Container>
     </>
   );

@@ -19,6 +19,7 @@ import ListItemText from '@mui/material/ListItemText';
 import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import HomeIcon from '@mui/icons-material/Home';
+
 const drawerWidth = 240;
 
 const openedMixin = (theme: Theme): CSSObject => ({
@@ -47,7 +48,6 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'flex-end',
   padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
   ...theme.mixins.toolbar,
 }));
 
@@ -90,9 +90,13 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-export default function MiniDrawer() {
+export default function MiniDrawer({ setPage }: any) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+
+  const handlePage = (page: string) => {
+    setPage(page);
+  };
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -103,9 +107,9 @@ export default function MiniDrawer() {
   };
 
   return (
-    <Box sx={{ display: 'flex' }} >
+    <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}  sx={{backgroundColor: "#3A6C9C"}}>
+      <AppBar position="fixed" open={open} sx={{ backgroundColor: '#3A6C9C' }}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -122,11 +126,10 @@ export default function MiniDrawer() {
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
+            component="div"
             sx={{
               mr: 6,
-              display: 'flex' ,
+              display: 'flex',
               fontFamily: 'monospace',
               letterSpacing: '.2rem',
               fontWeight: 700,
@@ -138,16 +141,20 @@ export default function MiniDrawer() {
           </Typography>
         </Toolbar>
       </AppBar>
-      <Drawer variant="permanent" open={open} >
-        <DrawerHeader sx={{backgroundColor: "#3A6C9C"}}>
+      <Drawer variant="permanent" open={open}>
+        <DrawerHeader sx={{ backgroundColor: '#3A6C9C' }}>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon style={{ color: 'white' }}/> : <ChevronLeftIcon style={{ color: 'white' }}/>}
+            {theme.direction === 'rtl' ? (
+              <ChevronRightIcon style={{ color: 'white' }} />
+            ) : (
+              <ChevronLeftIcon style={{ color: 'white' }} />
+            )}
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <List sx={{backgroundColor: "#3A6C9C", height:"100%"}}>
+        <List sx={{ backgroundColor: '#3A6C9C', height: '100%' }}>
           {['Home', 'Inflation', 'Currencies'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' ,color:"white"}}>
+            <ListItem key={text} disablePadding sx={{ display: 'block', color: 'white' }} onClick={() => handlePage(text)}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -162,7 +169,13 @@ export default function MiniDrawer() {
                     justifyContent: 'center',
                   }}
                 >
-                  {index === 0 ? <HomeIcon style={{ color: 'white' }} /> : index === 1 ? <TimelineIcon style={{ color: 'white' }}/> : <CurrencyExchangeIcon style={{ color: 'white' }}/>  }
+                  {index === 0 ? (
+                    <HomeIcon style={{ color: 'white' }} />
+                  ) : index === 1 ? (
+                    <TimelineIcon style={{ color: 'white' }} />
+                  ) : (
+                    <CurrencyExchangeIcon style={{ color: 'white' }} />
+                  )}
                 </ListItemIcon>
                 <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
@@ -170,14 +183,12 @@ export default function MiniDrawer() {
           ))}
         </List>
         <Divider />
-        
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        <Typography paragraph variant='h6'>
-          ECONOMIC MUI is a portal that has the goal to show relevantic economic data, with a deeper focus on  USA and Sweden!
+        <Typography paragraph variant="h6">
+          ECONOMIC MUI is a portal that has the goal to show relevant economic data, with a deeper focus on USA and Sweden!
         </Typography>
-        
       </Box>
     </Box>
   );
