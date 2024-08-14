@@ -1,34 +1,41 @@
-
+import RefreshIcon from '@mui/icons-material/Refresh';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
+import USA from "../../../public/usa.jpg"
+import { fetchData } from '../../utils/functions';
+
+
+
 
 export default function MultiActionAreaCard() {
+  const handleRefresh = () => {
+    fetchData("USA", setXValues, setYValues);
+    fetchData("SWE", setXValuesSWE, setYValuesSWE);
+  };
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
-        <CardMedia
+        <CardMedia 
           component="img"
-          height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
+          height=""
+          image={USA}
           alt="green iguana"
+          sx={{margin: "8px"}}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Lizard
+            CPI for year was 139 %
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
-          </Typography>
+          
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          REFRESH
-        </Button>
+      <Button color='primary' variant='contained' endIcon={<RefreshIcon /> } sx={{":hover": {bgcolor: "darkblue"}}} onClick={handleRefresh}>
+            REFRESH
+          </Button>
       </CardActions>
     </Card>
   );

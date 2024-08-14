@@ -4,7 +4,7 @@ import CPICard from "../CPICard";
 const CPICardContainer = () => {
     return (
         <div>
-          <CPICard />
+          <CPICard  />
         </div>
     )
 };

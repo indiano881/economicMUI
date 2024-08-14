@@ -1,12 +1,12 @@
 
-import { Box, Button, ButtonGroup, Container, Drawer, Paper, Typography } from '@mui/material';
+import { Box, Button, ButtonGroup, Container, Paper, Typography } from '@mui/material';
 import { LineChart } from '@mui/x-charts/LineChart';
-import RefreshIcon from '@mui/icons-material/Refresh';
+
 import MouseIcon from '@mui/icons-material/Mouse';
 import { useState, useEffect } from 'react';
 import {  fetchData} from './utils/functions';
 import Currencies from './components/Currencies';
-import ResponsiveAppBar from './components/Navbar';
+
 import SideDrawer from './components/SideDrawer';
 import CPICardContainer from './components/CPICardContainer';
 
@@ -24,10 +24,7 @@ function App() {
     fetchData("SWE", setXValuesSWE, setYValuesSWE);
   }, []);
 
-  const handleRefresh = () => {
-    fetchData("USA", setXValues, setYValues);
-    fetchData("SWE", setXValuesSWE, setYValuesSWE);
-  };
+  
   
   const handleSweden = () => {
     if(yValuesSWE.length===0) {
@@ -55,10 +52,8 @@ function App() {
           
           <Paper elevation={6} sx={{my: 4, px: 2}}>
             <CPICardContainer />
-            <Typography variant='h5' sx={{ py: 2 }}>Last CPI is </Typography>
-            <Button color='primary' variant='contained' endIcon={<RefreshIcon /> } sx={{":hover": {bgcolor: "darkblue"}}} onClick={handleRefresh}>
-            REFRESH
-          </Button>
+            
+            
           </Paper>
           
           
