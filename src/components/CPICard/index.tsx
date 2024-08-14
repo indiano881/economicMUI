@@ -7,10 +7,15 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 
 
 
+type MultiActionAreaCardProps= {
+  image: string,
+  country: string,
+  CPIDate: string | number,
+  CPIValue: string | number
+}
 
 
-
-export default function MultiActionAreaCard({image, CPIDate, CPIValue}) {
+export default function MultiActionAreaCard({image, country, CPIDate, CPIValue}: MultiActionAreaCardProps) {
   const handleRefresh = () => {
     
   };
@@ -19,14 +24,14 @@ export default function MultiActionAreaCard({image, CPIDate, CPIValue}) {
       <CardActionArea>
         <CardMedia 
           component="img"
-          height=""
+          height="175px"
           image={image}
           alt="green iguana"
           sx={{margin: "8px"}}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            CPI for {CPIDate} was {CPIValue} %
+            CPI in {country} for {CPIDate} was {CPIValue} %
           </Typography>
           
         </CardContent>
