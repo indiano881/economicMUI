@@ -42,3 +42,11 @@ export const fetchData = async (country: string, setXValues: Function, setYValue
     setXValues(xAxisData.reverse()); 
     setYValues(yAxisData.reverse());
   };
+
+  export const fetchCurrency = async() => {
+
+    const response= await fetch("https://open.er-api.com/v6/latest/USD");
+    const data= await response.json();
+    console.log("USD/SEK "+data.rates.SEK);
+    console.log("USD/EUR "+data.rates.EUR);
+}

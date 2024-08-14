@@ -5,6 +5,7 @@ import RefreshIcon from '@mui/icons-material/Refresh';
 import MouseIcon from '@mui/icons-material/Mouse';
 import { useState, useEffect } from 'react';
 import {  fetchData} from './utils/functions';
+import Currencies from './components/Currencies';
 
 function App() {
   /*const [lastCPI, setLastCPI] = useState<number>();*/
@@ -24,6 +25,7 @@ function App() {
     fetchData("USA", setXValues, setYValues);
     fetchData("SWE", setXValuesSWE, setYValuesSWE);
   };
+  
   const handleSweden = () => {
     if(yValuesSWE.length===0) {
       fetchData("SWE", setXValuesSWE, setYValuesSWE);
@@ -88,6 +90,7 @@ function App() {
             Sweden
           </Button>
           </ButtonGroup>
+          <Box><Paper elevation={6}><Currencies/></Paper></Box>
       </Container>
     </>
   );
