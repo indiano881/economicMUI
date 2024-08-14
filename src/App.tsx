@@ -59,7 +59,7 @@ function App() {
   return (
     <>
     
-    <SideDrawer setPage={setPage}/>
+    <SideDrawer setPage={setPage} page={page}/>
       <Container maxWidth="lg"  sx={{ color: "black", bgcolor: "#3A6C9C", height: "100vh", alignItems: "center", display: "flex", flexDirection: "column" }}>
         <Box>
         {(page==="Home" || page==="Currencies") && <> 
@@ -105,14 +105,14 @@ function App() {
           </Box>
           </Paper>
           <Typography variant='h5' color={"white"}>Values in percentage, reference year is 2010 = 100%</Typography>
-          <ButtonGroup>
+          <ButtonGroup sx={{paddingBottom: "36px"}}>
           <Button color='primary' variant='contained' endIcon={<MouseIcon /> } sx={{":hover": {bgcolor: "#680C07"},bgcolor: "#900603", width: "120px"}} onClick={handleUSA}>
               USA
             </Button>
             <Button color='primary' variant='contained' endIcon={<MouseIcon/> }  sx={{":hover": {bgcolor: "darkgreen"},bgcolor: "green", width: "120px"}} onClick={handleSweden}>
               Sweden
             </Button>
-            </ButtonGroup>
+            </ButtonGroup >
 
 </>}
 

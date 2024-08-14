@@ -90,7 +90,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-export default function MiniDrawer({ setPage }: any) {
+export default function MiniDrawer({ setPage, page }: any) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -186,9 +186,21 @@ export default function MiniDrawer({ setPage }: any) {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        <Typography paragraph variant="h6">
+        {page==="Home" && <>
+          <Typography paragraph variant="h6">
           ECONOMIC MUI is a portal that has the goal to show relevant economic data, with a deeper focus on USA and Sweden!
         </Typography>
+        </>}
+        {page==="Inflation" && <>
+          <Typography paragraph variant="h6">
+          The Consumer Price Index (CPI) measures the average change in prices paid by consumers for goods and services over time. It tracks inflation by comparing the current cost of a fixed basket of items to the cost in a base year. Governments and economists use CPI to assess cost of living, adjust wages, and set monetary policy. A rising CPI indicates increasing prices, while a falling CPI signals decreasing prices.
+        </Typography>
+        </>}
+        {page==="Currencies" && <>
+          <Typography paragraph variant="h6">
+          An exchange rate between two currencies is the value at which one currency can be exchanged for another. It determines how much of one currency you receive when converting to another, influencing international trade, investment, and travel costs. Rates fluctuate based on economic conditions and market demand.
+        </Typography>
+        </>}
       </Box>
     </Box>
   );

@@ -11,7 +11,7 @@ export const fetchData = async (country: string, setXValues: Function, setYValue
     const xAxisData = [];
     const yAxisData = [];
     
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 30; i++) {
       xAxisData.push(data[1][i].date.toString()); 
       yAxisData.push(data[1][i].value); 
     }
