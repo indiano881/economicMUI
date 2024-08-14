@@ -32,7 +32,7 @@ export const fetchData = async (country: string, setXValues: Function, setYValue
 
     const response= await fetch(`https://open.er-api.com/v6/latest/${country2}`);
     const data= await response.json();
-  
+    
     setDate(data.time_last_update_utc)
     setExchange(data.rates[country])
 }
