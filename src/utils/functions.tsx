@@ -5,13 +5,13 @@ export const percentageIncreaseCalculator = (val1:number , val2:number) =>  {
     return percentageValue;
 }
 
-export const fetchData = async (country: string, setXValues: Function, setYValues: Function) => {
+export const fetchData = async (country: string, setXValues: Function, setYValues: Function, loop:number) => {
     const response = await fetch(`https://api.worldbank.org/v2/country/${country}/indicator/FP.CPI.TOTL?format=json`);
     const data = await response.json();
     const xAxisData = [];
     const yAxisData = [];
     
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < loop; i++) {
       xAxisData.push(data[1][i].date.toString()); 
       yAxisData.push(data[1][i].value); 
     }

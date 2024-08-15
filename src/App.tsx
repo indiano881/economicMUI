@@ -1,8 +1,5 @@
 
-import { Box, Button, ButtonGroup, Container, Paper, Typography } from '@mui/material';
-import { LineChart } from '@mui/x-charts/LineChart';
-
-import MouseIcon from '@mui/icons-material/Mouse';
+import { Box, Container, Paper } from '@mui/material';
 import { useState, useEffect } from 'react';
 import {  downloandLastCPI, fetchCurrency, fetchData} from './utils/functions';
 import Currencies from './components/Currencies';
@@ -10,6 +7,8 @@ import SideDrawer from './components/SideDrawer';
 import { CPICardContainerProps } from './utils/types';
 import CPICardContainer from './components/CPICardContainer';
 import SingleExchange from './components/SingleExchange';
+import CPIChart from './components/CPIChart';
+import CPIChartDeep from './components/CPIChartDeep';
 
 
 function App() {
@@ -28,8 +27,8 @@ function App() {
   const [SekUsdDate, SekUsdSekDate] = useState<any>();
 
   useEffect(() => {
-    fetchData("USA", setXValues, setYValues);
-    fetchData("SWE", setXValuesSWE, setYValuesSWE);
+    fetchData("USA", setXValues, setYValues, 25);
+    fetchData("SWE", setXValuesSWE, setYValuesSWE, 25);
     downloandLastCPI("USA", setUSALastCPIDate, setUSALastCPIValue);
     downloandLastCPI("SWE", setSWELastCPIDate, setSWELastCPIValue);
     fetchCurrency("SEK", "USD", setUsdSek, setUsdSekDate);
@@ -38,24 +37,7 @@ function App() {
 
   
   
-  const handleSweden = () => {
-    if(yValuesSWE.length===0) {
-      fetchData("SWE", setXValuesSWE, setYValuesSWE);
-    } else {
-      setYValuesSWE([])
-    }
-    
-  };
-
-  const handleUSA = () => {
-    if(yValues.length===0) {
-    fetchData("USA", setXValues, setYValues);
-    } else {
-      setYValues([])
-    }
-  };
-
-  console.log("page "+page)
+  
   return (
     <>
     
@@ -67,7 +49,7 @@ function App() {
         </>}
         
           <Paper elevation={6} sx={{my: 4, px: 2}}>
-            {(page==="Home" || page==="Inflation") && <>
+            {(page==="Home") && <>
 
               <CPICardContainer USALastCPIDate={USALastCPIDate} USALastCPIDateValue={USALastCPIDateValue} SWELastCPIDate={SWELastCPIDate} SWELastCPIDateValue={SWELastCPIDateValue} />
 
@@ -80,39 +62,26 @@ function App() {
           
         </Box>
         
-        {(page==="Home" || page==="Inflation") && <>
-          <Paper elevation={6} sx={{ height: "300px", width: "100%" }}>
-          <Box style={{ height: "300px", width: "100%" }}>
-          
-          <LineChart 
-            xAxis={[{ data: xValues, scaleType: "linear", label: "CPI per year" }]} 
-            
-            series={[
-              {
-                data: yValues,
-                color: "#900603",
-                label:"US"
-              },
-              {
-                data: yValuesSWE,
-                color: "green",
-                label:"SWE"
-              }
-            ]}
-            
-          />
-          
-          </Box>
-          </Paper>
-          <Typography variant='h5' color={"white"}>Values in percentage, reference year is 2010 = 100%</Typography>
-          <ButtonGroup sx={{paddingBottom: "36px"}}>
-          <Button color='primary' variant='contained' endIcon={<MouseIcon /> } sx={{":hover": {bgcolor: "#680C07"},bgcolor: "#900603", width: "120px"}} onClick={handleUSA}>
-              USA
-            </Button>
-            <Button color='primary' variant='contained' endIcon={<MouseIcon/> }  sx={{":hover": {bgcolor: "darkgreen"},bgcolor: "green", width: "120px"}} onClick={handleSweden}>
-              Sweden
-            </Button>
-            </ButtonGroup >
+        {(page==="Home" ) && <>
+         <CPIChart 
+          xValues={xValues} 
+          setXValues={setXValues} 
+          yValues={yValues} 
+          setYValues={setYValues} 
+          yValuesSWE={yValuesSWE} 
+          setXValuesSWE={setXValuesSWE} 
+          setYValuesSWE={setYValuesSWE}/>
+
+</>}
+{(page==="Inflation" ) && <>
+         <CPIChartDeep
+          xValues={xValues} 
+          setXValues={setXValues} 
+          yValues={yValues} 
+          setYValues={setYValues} 
+          yValuesSWE={yValuesSWE} 
+          setXValuesSWE={setXValuesSWE} 
+          setYValuesSWE={setYValuesSWE}/>
 
 </>}
 
