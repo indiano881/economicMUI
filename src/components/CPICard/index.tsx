@@ -11,7 +11,7 @@ type MultiActionAreaCardProps= {
   image: string,
   country: string,
   CPIDate: string | number,
-  CPIValue: string | number
+  CPIValue:  number
 }
 
 

@@ -24,15 +24,28 @@ const InvestGauge=({ value }:InvestGaugeProps)=> {
         </Box>
         <Box position="relative" display="inline-flex" bgcolor={"#3A6C9C"} borderRadius={"4px"}>
             
-            <CircularProgress
-                variant="determinate"
-                value={value}
-                size={150}
-                thickness={5}
-                sx={{
-                    color: getColor(value),
-                }}
-            />
+        <CircularProgress
+        variant="determinate"
+        value={100}
+        size={150}
+        thickness={5}
+        sx={{
+          color: 'lightgray', 
+        }}
+      />
+      <CircularProgress
+        variant="determinate"
+        value={value}
+        size={150}
+        thickness={5}
+        sx={{
+          color: getColor(value),
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          zIndex: 1,
+        }}
+      />
             <Box
                 top={0}
                 left={0}

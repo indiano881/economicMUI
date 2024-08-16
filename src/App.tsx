@@ -37,7 +37,7 @@ function App() {
     fetchCurrency("USD", "SEK",setSekUsd, SekUsdSekDate);
     
   }, []);
-  
+
   useEffect(() => {
     if (UsdSek) {
       calculateInvestmentScore(UsdSek, setValueGauge)
