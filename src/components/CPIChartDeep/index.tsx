@@ -124,10 +124,10 @@ const CPIChartDeep = ({ xValues, setXValues, yValues, setYValues, yValuesSWE, se
         flexDirection: {xs: "column", md: "row"} 
         
         }}>
-        <Button color='primary' variant='contained' endIcon={<TouchAppIcon />} sx={{ ":hover": { bgcolor: "#680C07" }, bgcolor: "#900603", width: "120px" }} onClick={handleUSA}>
+        <Button color='primary' variant='contained' endIcon={<TouchAppIcon />} sx={{ ":hover": { bgcolor: "#680C07" }, bgcolor: "#900603", width: "120px", height:"56px" }} onClick={handleUSA}>
           USA
         </Button>
-        <Button color='primary' variant='contained' endIcon={<TouchAppIcon />} sx={{ ":hover": { bgcolor: "darkgreen" }, bgcolor: "green", width: "120px" }} onClick={handleSweden}>
+        <Button color='primary' variant='contained' endIcon={<TouchAppIcon />} sx={{ ":hover": { bgcolor: "darkgreen" }, bgcolor: "green", width: "120px", height:"56px" }} onClick={handleSweden}>
           Sweden
         </Button>
         <FormControl sx={{ width: "120px", bgcolor: "blue", color: "white" }}>
