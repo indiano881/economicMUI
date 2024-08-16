@@ -103,7 +103,13 @@ const CPIChartDeep = ({ xValues, setXValues, yValues, setYValues, yValuesSWE, se
       </Paper>
       <Typography variant='h5' color={"white"}>Values in percentage, reference year is 2010 = 100%</Typography>
       <Typography variant='h5' color={"white"}>Period of reference: past 50 years</Typography>
-      <ButtonGroup sx={{ paddingBottom: "36px" }}>
+      <ButtonGroup 
+      sx={{ 
+        paddingBottom: "36px", 
+        display:{xs: "flex"},
+        flexDirection: {xs: "column", md: "row"} 
+        
+        }}>
         <Button color='primary' variant='contained' endIcon={<TouchAppIcon />} sx={{ ":hover": { bgcolor: "#680C07" }, bgcolor: "#900603", width: "120px" }} onClick={handleUSA}>
           USA
         </Button>

@@ -31,7 +31,8 @@ const InvestGauge=({ value }:InvestGaugeProps)=> {
         size={150}
         thickness={5}
         sx={{
-          color: 'lightgray', 
+          color: 'lightgray',
+          padding: "8px"
         }}
       />
       <CircularProgress
@@ -45,6 +46,7 @@ const InvestGauge=({ value }:InvestGaugeProps)=> {
           top: 0,
           left: 0,
           zIndex: 1,
+          padding: "8px"
         }}
       />
             <Box

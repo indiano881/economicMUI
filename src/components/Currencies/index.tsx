@@ -30,7 +30,7 @@ const Currencies = () => {
     );
 
     return (
-        <Stack spacing={2} sx={{ marginTop: '16px' }}>
+        <Stack spacing={2}  sx={{ marginTop: '16px', width:{xs: "270px", sm: "530px", lg: "550px"} }}>
             <TextField
                 label="Search Currencies"
                 variant="outlined"
@@ -38,14 +38,22 @@ const Currencies = () => {
                 onChange={(e) => setSearchTerm(e.target.value)}
                 sx={{ marginBottom: '16px' }}
             />
-            <Grid container spacing={2}>
+            <Grid container spacing={1}>
                 <Grid item xs={12} sm={6}>
                     <Stack spacing={2}>
                         <Typography variant="h5" align="center">
                             USD Rates
                         </Typography>
-                        {filteredUsdCurrencies.map(([key, value]) => (
-                            <Paper key={key} elevation={3} sx={{ padding: '8px' }}>
+                        {filteredUsdCurrencies.map(([key, value], index) => (
+                            <Paper
+                                key={key}
+                                elevation={4}
+                                sx={{
+                                    padding: '8px',
+                                    backgroundColor: index % 2 === 0 ? 'lightgray' : 'transparent', 
+                                    width:{xs: "250px", md: "250px"}
+                                }}
+                            >
                                 <Typography align="center" variant="h6">
                                     {key}: {value}
                                 </Typography>
@@ -58,8 +66,16 @@ const Currencies = () => {
                         <Typography variant="h5" align="center">
                             SEK Rates
                         </Typography>
-                        {filteredSekCurrencies.map(([key, value]) => (
-                            <Paper key={key} elevation={3} sx={{ padding: '8px' }}>
+                        {filteredSekCurrencies.map(([key, value], index) => (
+                            <Paper
+                                key={key}
+                                elevation={4}
+                                sx={{
+                                    padding: '8px',
+                                    backgroundColor: index % 2 === 0 ? 'lightgray' : 'transparent', 
+                                    width:{xs: "250px", md: "250px"}
+                                }}
+                            >
                                 <Typography align="center" variant="h6">
                                     {key}: {value}
                                 </Typography>
@@ -70,6 +86,7 @@ const Currencies = () => {
             </Grid>
         </Stack>
     );
+    
 };
 
 export default Currencies;

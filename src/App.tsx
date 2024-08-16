@@ -62,12 +62,10 @@ function App() {
         paddingLeft: {
           xs: 8, 
           sm: 20,
-           
-            
         } 
         }}>
         <Box>
-        {(page==="Home" || page==="Currencies") && <> 
+        {(page==="Home" ) && <> 
           <SingleExchange UsdSek={UsdSek} UsdSekDate={UsdSekDate} SekUsd={SekUsd} SekUsdDate={SekUsdDate}/>
         </>}
         

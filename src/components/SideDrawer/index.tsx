@@ -187,7 +187,7 @@ export default function MiniDrawer({ setPage, page }: any) {
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
         {page==="Home" && <>
-          <Typography paragraph variant="h6">
+          <Typography paragraph variant="h6" >
           ECONOMIC MUI is a dynamic portal dedicated to providing comprehensive economic data with a particular focus on the United States and Sweden. Our platform offers up-to-date information and insights into key economic indicators, including inflation rates, CPI, and exchange rates.
         </Typography>
         </>}
