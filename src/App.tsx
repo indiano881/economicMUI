@@ -42,7 +42,7 @@ function App() {
     if (UsdSek) {
       calculateInvestmentScore(UsdSek, setValueGauge)
     }
-}, [UsdSek]);
+  }, [UsdSek]);
   
   
   

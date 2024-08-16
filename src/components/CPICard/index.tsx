@@ -16,18 +16,22 @@ type MultiActionAreaCardProps= {
 
 
 export default function MultiActionAreaCard({image, country, CPIDate, CPIValue}: MultiActionAreaCardProps) {
+
+  
+
+
   const handleRefresh = () => {
     
   };
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, display: "flex", flexDirection: "column", alignItems:"center" }}>
       <CardActionArea>
         <CardMedia 
           component="img"
           height="175px"
           image={image}
-          alt="green iguana"
-          sx={{margin: "8px"}}
+          alt={`flag ${country}`}
+          sx={{margin: "2px"}}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
