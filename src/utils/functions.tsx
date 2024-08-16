@@ -36,3 +36,17 @@ export const fetchData = async (country: string, setXValues: Function, setYValue
     setDate(data.time_last_update_utc)
     setExchange(data.rates[country])
 }
+
+
+export const calculateInvestmentScore=( exchangeRate:number, updateFunction:Function)=> {
+ 
+  const rateValue= (Math.round(exchangeRate * 100 / 15))
+
+  updateFunction((rateValue));
+  
+  
+}
+
+
+
+

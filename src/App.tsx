@@ -1,7 +1,7 @@
 
 import { Box, Container, Paper } from '@mui/material';
 import { useState, useEffect } from 'react';
-import {  downloandLastCPI, fetchCurrency, fetchData} from './utils/functions';
+import {  calculateInvestmentScore, downloandLastCPI, fetchCurrency, fetchData} from './utils/functions';
 import Currencies from './components/Currencies';
 import SideDrawer from './components/SideDrawer';
 import { CPICardContainerProps } from './utils/types';
@@ -9,6 +9,7 @@ import CPICardContainer from './components/CPICardContainer';
 import SingleExchange from './components/SingleExchange';
 import CPIChart from './components/CPIChart';
 import CPIChartDeep from './components/CPIChartDeep';
+import InvestGauge from './components/InvestGauge';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
   const [UsdSekDate, setUsdSekDate] = useState<any>();
   const [SekUsd, setSekUsd] = useState<any>();
   const [SekUsdDate, SekUsdSekDate] = useState<any>();
+  const [valueGauge,setValueGauge] = useState<number >(0);
 
   useEffect(() => {
     fetchData("USA", setXValues, setYValues, 25);
@@ -33,8 +35,14 @@ function App() {
     downloandLastCPI("SWE", setSWELastCPIDate, setSWELastCPIValue);
     fetchCurrency("SEK", "USD", setUsdSek, setUsdSekDate);
     fetchCurrency("USD", "SEK",setSekUsd, SekUsdSekDate);
+    
   }, []);
-
+  
+  useEffect(() => {
+    if (UsdSek) {
+      calculateInvestmentScore(UsdSek, setValueGauge)
+    }
+}, [UsdSek]);
   
   
   
@@ -52,7 +60,7 @@ function App() {
             {(page==="Home") && <>
 
               <CPICardContainer USALastCPIDate={USALastCPIDate} USALastCPIDateValue={USALastCPIDateValue} SWELastCPIDate={SWELastCPIDate} SWELastCPIDateValue={SWELastCPIDateValue} />
-
+              <InvestGauge value={valueGauge} />
             </>}
             
             
