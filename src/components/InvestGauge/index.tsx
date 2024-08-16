@@ -28,7 +28,7 @@ const InvestGauge=({ value }:InvestGaugeProps)=> {
         size={150}
         thickness={5}
         sx={{
-          color: 'lightgray',
+          color: 'white',
           padding: "8px"
         }}
       />
@@ -57,9 +57,9 @@ const InvestGauge=({ value }:InvestGaugeProps)=> {
                 justifyContent="center"
             >
                 <Typography
-                    variant="h6"
+                    variant="h5"
                     component="div"
-                    color="textPrimary"
+                    color="white"
                 >{`${value} / 100`}</Typography>
             </Box>
         </Box>
