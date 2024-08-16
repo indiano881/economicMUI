@@ -20,7 +20,7 @@ import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import HomeIcon from '@mui/icons-material/Home';
 
-const drawerWidth = 240;
+const drawerWidth = 175;
 
 const openedMixin = (theme: Theme): CSSObject => ({
   width: drawerWidth,
