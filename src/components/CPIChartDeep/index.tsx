@@ -72,8 +72,22 @@ const CPIChartDeep = ({ xValues, setXValues, yValues, setYValues, yValuesSWE, se
 
   return (
     <>
-      <Paper elevation={6} sx={{ height: "500px", width: "100%" }}>
-        <Box style={{ height: "500px", width: "100%" }}>
+      <Paper elevation={6} sx={{
+      height: {
+        xs: '400px',  
+        md: '500px'
+      },
+      width: '100%', 
+    }}>
+      <Box
+    sx={{
+      height: {
+        xs: '400px',  
+        md: '500px' 
+      },
+      width: '100%', 
+    }}
+  >
           <LineChart
             xAxis={[{ data: xValues, scaleType: "linear", label: "CPI per year" }]}
             series={[
