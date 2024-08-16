@@ -17,10 +17,11 @@ type InvestGaugeProps = {
 
 const InvestGauge=({ value }:InvestGaugeProps)=> {
     return (<>
-    <Box display={"flex"}>
+    <Box display={"flex"} flexDirection={"row"} alignItems={"center"} justifyContent={"space-evenly"} paddingBottom={"8px"}>
         <Box display={"flex"} flexDirection={"column"}>
-            <Typography variant='h5'>How good is to invest Dollars</Typography>
-            <Typography variant='h5'>in Sweden right now?</Typography>
+            <Typography variant='h5'>How good is to invest </Typography>
+            <Typography variant='h5'>US Dollars in Sweden</Typography>
+            <Typography variant='h5'>right now?</Typography>
         </Box>
         <Box position="relative" display="inline-flex" bgcolor={"#3A6C9C"} borderRadius={"4px"}>
             
