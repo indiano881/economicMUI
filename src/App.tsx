@@ -50,7 +50,22 @@ function App() {
     <>
     
     <SideDrawer setPage={setPage} page={page}/>
-      <Container maxWidth="lg"  sx={{ color: "black", bgcolor: "#3A6C9C", height: "100vh", alignItems: "center", display: "flex", flexDirection: "column" }}>
+      <Container 
+      maxWidth="lg"  
+      sx={{ 
+        color: "black", 
+        bgcolor: "#3A6C9C", 
+        alignItems: "center", 
+        display: "flex", 
+        flexDirection: "column",
+        justifyContent: "center",
+        paddingLeft: {
+          xs: 8, 
+          sm: 20,
+           
+            
+        } 
+        }}>
         <Box>
         {(page==="Home" || page==="Currencies") && <> 
           <SingleExchange UsdSek={UsdSek} UsdSekDate={UsdSekDate} SekUsd={SekUsd} SekUsdDate={SekUsdDate}/>

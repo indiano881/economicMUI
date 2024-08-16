@@ -39,7 +39,7 @@ export const fetchData = async (country: string, setXValues: Function, setYValue
 
 
 export const calculateInvestmentScore=( exchangeRate:number, updateFunction:Function)=> {
- 
+ //OBS mock function- i am not an economist!
   const rateValue= (Math.round(exchangeRate * 100 / 15))
 
   updateFunction((rateValue));
