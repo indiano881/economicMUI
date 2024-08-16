@@ -12,8 +12,8 @@ export const fetchData = async (country: string, setXValues: Function, setYValue
     const yAxisData = [];
     
     for (let i = 0; i < loop; i++) {
-      xAxisData.push(data[1][i].date.toString()); 
-      yAxisData.push(data[1][i].value); 
+      xAxisData.push(data[1][i].date); 
+      yAxisData.push(data[1][i].value.toFixed(2)); 
     }
 
     setXValues(xAxisData.reverse()); 
@@ -25,7 +25,7 @@ export const fetchData = async (country: string, setXValues: Function, setYValue
     const data = await response.json();
 
     setDate(data[1][0].date); 
-    setValue(data[1][0].value);
+    setValue(data[1][0].value.toFixed(2));
   };
 
   export const fetchCurrency = async (country: string, country2: string, setExchange: any, setDate:Function) => {
@@ -33,7 +33,7 @@ export const fetchData = async (country: string, setXValues: Function, setYValue
     const response= await fetch(`https://open.er-api.com/v6/latest/${country2}`);
     const data= await response.json();
     
-    setDate(data.time_last_update_utc)
+    setDate(data.time_last_update_utc.split("+0000"))
     setExchange(data.rates[country])
 }
 

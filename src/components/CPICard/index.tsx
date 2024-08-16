@@ -2,10 +2,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea, CardActions } from '@mui/material';
 import { CPICardProps } from '../../utils/types';
-
-
 
 const CPICard=({image, country, CPIDate, CPIValue}: CPICardProps) =>{
 
@@ -17,7 +14,7 @@ const CPICard=({image, country, CPIDate, CPIValue}: CPICardProps) =>{
       maxWidth: 345, 
       }}
       >
-      <CardActionArea>
+      
         <CardMedia 
           component="img"
           height="175px"
@@ -29,12 +26,8 @@ const CPICard=({image, country, CPIDate, CPIValue}: CPICardProps) =>{
           <Typography gutterBottom variant="h5" component="div">
             Last CPI in {country} was {CPIValue} % ({CPIDate})
           </Typography>
-          
         </CardContent>
-      </CardActionArea>
-      <CardActions>
       
-      </CardActions>
     </Card>
   );
 }
