@@ -1,10 +1,8 @@
-
 import { Box, Container, Paper } from '@mui/material';
 import { useState, useEffect } from 'react';
 import {  calculateInvestmentScore, downloandLastCPI, fetchCurrency, fetchData} from './utils/functions';
 import Currencies from './components/Currencies';
 import SideDrawer from './components/SideDrawer';
-import { CPICardContainerProps } from './utils/types';
 import CPICardContainer from './components/CPICardContainer';
 import SingleExchange from './components/SingleExchange';
 import CPIChart from './components/CPIChart';
@@ -18,10 +16,10 @@ function App() {
   const [yValues, setYValues] = useState<number[]>([]);
   const [, setXValuesSWE] = useState<string[]>([]);
   const [yValuesSWE, setYValuesSWE] = useState<number[]>([]);
-  const [USALastCPIDate, setUSALastCPIDate] = useState<CPICardContainerProps>();
-  const [USALastCPIDateValue, setUSALastCPIValue] = useState<CPICardContainerProps>();
-  const [SWELastCPIDate, setSWELastCPIDate] = useState<CPICardContainerProps>();
-  const [SWELastCPIDateValue, setSWELastCPIValue] = useState<CPICardContainerProps>();
+  const [USALastCPIDate, setUSALastCPIDate] = useState<any>();
+  const [USALastCPIDateValue, setUSALastCPIValue] = useState<any>();
+  const [SWELastCPIDate, setSWELastCPIDate] = useState<any>();
+  const [SWELastCPIDateValue, setSWELastCPIValue] = useState<any>();
   const [UsdSek, setUsdSek] = useState<any>();
   const [UsdSekDate, setUsdSekDate] = useState<any>();
   const [SekUsd, setSekUsd] = useState<any>();
@@ -45,10 +43,8 @@ function App() {
   }, [UsdSek]);
   
   
-  
   return (
     <>
-    
     <SideDrawer setPage={setPage} page={page}/>
       <Container 
       maxWidth="lg"  
@@ -65,22 +61,27 @@ function App() {
         } 
         }}>
         <Box>
+
         {(page==="Home" ) && <> 
-          <SingleExchange UsdSek={UsdSek} UsdSekDate={UsdSekDate} SekUsd={SekUsd} SekUsdDate={SekUsdDate}/>
+          <SingleExchange 
+            UsdSek={UsdSek} 
+            UsdSekDate={UsdSekDate} 
+            SekUsd={SekUsd} 
+            SekUsdDate={SekUsdDate}/>
         </>}
         
           <Paper elevation={6} sx={{my: 4, px: 2}}>
             {(page==="Home") && <>
 
-              <CPICardContainer USALastCPIDate={USALastCPIDate} USALastCPIDateValue={USALastCPIDateValue} SWELastCPIDate={SWELastCPIDate} SWELastCPIDateValue={SWELastCPIDateValue} />
+              <CPICardContainer 
+                USALastCPIDate={USALastCPIDate} 
+                USALastCPIDateValue={USALastCPIDateValue} 
+                SWELastCPIDate={SWELastCPIDate} 
+                SWELastCPIDateValue={SWELastCPIDateValue} 
+                />
               <InvestGauge value={valueGauge} />
             </>}
-            
-            
-            
           </Paper>
-          
-          
         </Box>
         
         {(page==="Home" ) && <>
@@ -92,28 +93,25 @@ function App() {
           yValuesSWE={yValuesSWE} 
           setXValuesSWE={setXValuesSWE} 
           setYValuesSWE={setYValuesSWE}/>
+        </>}
 
-</>}
-{(page==="Inflation" ) && <>
-         <CPIChartDeep
-          xValues={xValues} 
-          setXValues={setXValues} 
-          yValues={yValues} 
-          setYValues={setYValues} 
-          yValuesSWE={yValuesSWE} 
-          setXValuesSWE={setXValuesSWE} 
-          setYValuesSWE={setYValuesSWE}/>
+        {(page==="Inflation" ) && <>
+                <CPIChartDeep
+                  xValues={xValues} 
+                  setXValues={setXValues} 
+                  yValues={yValues} 
+                  setYValues={setYValues} 
+                  yValuesSWE={yValuesSWE} 
+                  setXValuesSWE={setXValuesSWE} 
+                  setYValuesSWE={setYValuesSWE}/>
+        </>}
 
-</>}
-
-       
           {page=="Currencies" && <>
             <Box>
               <Paper elevation={6}>
                 <Currencies/>
               </Paper>
             </Box>
-          
           </>}
           
       </Container>

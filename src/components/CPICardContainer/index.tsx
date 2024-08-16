@@ -4,8 +4,6 @@ import Sweden from "../../../public/sweden.jpg"
 import { CardContent } from "@mui/material";
 import { CPICardContainerProps } from "../../utils/types";
 
-
-
 const CPICardContainer = ({USALastCPIDate, USALastCPIDateValue, SWELastCPIDate, SWELastCPIDateValue}:CPICardContainerProps) => {
   
     return (

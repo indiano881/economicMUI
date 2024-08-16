@@ -1,15 +1,6 @@
 import  { useEffect, useState } from 'react';
 import { Stack, Paper, Typography, TextField, Grid } from '@mui/material';
-
-const fetchALLCurrency = async (country: string, setCurrencies: (currencies: { [key: string]: number }) => void) => {
-    try {
-        const response = await fetch(`https://open.er-api.com/v6/latest/${country}`);
-        const data = await response.json();
-        setCurrencies(data.rates);
-    } catch (error) {
-        console.error('Error fetching currency data:', error);
-    }
-};
+import { fetchALLCurrency } from '../../utils/functions';
 
 const Currencies = () => {
     const [usdCurrencies, setUsdCurrencies] = useState<{ [key: string]: number }>({});

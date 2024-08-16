@@ -2,6 +2,7 @@
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import { InvestGaugeProps } from '../../utils/types';
 
 
 const getColor=(value: number)=> {
@@ -10,10 +11,6 @@ const getColor=(value: number)=> {
     return 'green';
 }
 
-
-type InvestGaugeProps = {
-    value: number
-}
 
 const InvestGauge=({ value }:InvestGaugeProps)=> {
     return (<>

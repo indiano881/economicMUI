@@ -37,15 +37,24 @@ export const fetchData = async (country: string, setXValues: Function, setYValue
     setExchange(data.rates[country])
 }
 
-
+export const fetchALLCurrency = async (country: string, setCurrencies: (currencies: { [key: string]: number }) => void) => {
+  try {
+      const response = await fetch(`https://open.er-api.com/v6/latest/${country}`);
+      const data = await response.json();
+      setCurrencies(data.rates);
+  } catch (error) {
+      console.error('Error fetching currency data:', error);
+  }
+};
 export const calculateInvestmentScore=( exchangeRate:number, updateFunction:Function)=> {
  //OBS mock function- i am not an economist!
   const rateValue= (Math.round(exchangeRate * 100 / 15))
 
   updateFunction((rateValue));
   
-  
 }
+
+
 
 
 

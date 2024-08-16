@@ -1,30 +1,22 @@
-import RefreshIcon from '@mui/icons-material/Refresh';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
+import { CardActionArea, CardActions } from '@mui/material';
+import { CPICardProps } from '../../utils/types';
 
 
 
-type MultiActionAreaCardProps= {
-  image: string,
-  country: string,
-  CPIDate: string | number,
-  CPIValue:  number
-}
+const CPICard=({image, country, CPIDate, CPIValue}: CPICardProps) =>{
 
-
-export default function MultiActionAreaCard({image, country, CPIDate, CPIValue}: MultiActionAreaCardProps) {
-
-  
-
-
-  const handleRefresh = () => {
-    
-  };
   return (
-    <Card sx={{ maxWidth: 345, display: "flex", flexDirection: "column", alignItems:"center" }}>
+    <Card sx={{ 
+      alignItems:"center",
+      display: "flex", 
+      flexDirection: "column", 
+      maxWidth: 345, 
+      }}
+      >
       <CardActionArea>
         <CardMedia 
           component="img"
@@ -41,10 +33,10 @@ export default function MultiActionAreaCard({image, country, CPIDate, CPIValue}:
         </CardContent>
       </CardActionArea>
       <CardActions>
-      <Button color='primary' variant='contained' endIcon={<RefreshIcon /> } sx={{":hover": {bgcolor: "darkblue"}}} onClick={handleRefresh}>
-            REFRESH
-          </Button>
+      
       </CardActions>
     </Card>
   );
 }
+
+export default CPICard;

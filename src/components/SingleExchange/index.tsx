@@ -1,8 +1,9 @@
 import {  Paper, Stack, Typography } from "@mui/material";
+import { SingleExchangeProps } from "../../utils/types";
 
 
 
-const SingleExchange = ({UsdSek, UsdSekDate, SekUsd, SekUsdDate}:any) => {
+const SingleExchange = ({UsdSek, UsdSekDate, SekUsd, SekUsdDate}:SingleExchangeProps) => {
     
 
     return (
