@@ -121,7 +121,8 @@ const CPIChartDeep = ({ xValues, setXValues, yValues, setYValues, yValuesSWE, se
       sx={{ 
         paddingBottom: "36px", 
         display:{xs: "flex"},
-        flexDirection: {xs: "column", md: "row"} 
+        flexDirection: {xs: "column", md: "row"}, 
+        marginTop: "8px",
         
         }}>
         <Button color='primary' variant='contained' endIcon={<TouchAppIcon />} sx={{ ":hover": { bgcolor: "#680C07" }, bgcolor: "#900603", width: "120px", height:"56px" }} onClick={handleUSA}>
@@ -131,12 +132,13 @@ const CPIChartDeep = ({ xValues, setXValues, yValues, setYValues, yValuesSWE, se
           Sweden
         </Button>
         <FormControl sx={{ width: "120px", bgcolor: "blue", color: "white" }}>
-          <InputLabel id="country-select-label" sx={{ color: "white" }}>Europe</InputLabel>
+          <InputLabel variant='outlined' id="country-select-label" sx={{ color: "white" }}>Europe</InputLabel>
           <Select
             labelId="country-select-label"
             id="country-select"
             value={selectedCountry}
             label="Country"
+            
             onChange={handleThirdCountry}
             sx={{
               color: "white",

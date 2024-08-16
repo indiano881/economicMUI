@@ -24,10 +24,10 @@ const Currencies = () => {
         <Stack spacing={2}  sx={{ marginTop: '16px', width:{xs: "270px", sm: "530px", lg: "550px"} }}>
             <TextField
                 label="Search Currencies"
-                variant="outlined"
+                variant="filled"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                sx={{ marginBottom: '16px' }}
+                sx={{ marginBottom: '16px', marginTop:"16px"}}
             />
             <Grid container spacing={1}>
                 <Grid item xs={12} sm={6}>
@@ -41,7 +41,7 @@ const Currencies = () => {
                                 elevation={4}
                                 sx={{
                                     padding: '8px',
-                                    backgroundColor: index % 2 === 0 ? 'lightgray' : 'transparent', 
+                                    backgroundColor: index % 2 === 0 ? 'lightblue' : 'transparent', 
                                     width:{xs: "250px", md: "250px"}
                                 }}
                             >
@@ -63,7 +63,7 @@ const Currencies = () => {
                                 elevation={4}
                                 sx={{
                                     padding: '8px',
-                                    backgroundColor: index % 2 === 0 ? 'lightgray' : 'transparent', 
+                                    backgroundColor: index % 2 === 0 ? 'lightblue' : 'transparent', 
                                     width:{xs: "250px", md: "250px"}
                                 }}
                             >
